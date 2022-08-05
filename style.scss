@@ -58,7 +58,6 @@ body.lock{
     justify-self: start;
     align-items: center;
     text-align: center;
-    line-height: 14px;
     a{
         display: block;
         text-decoration: none;
@@ -229,10 +228,13 @@ body.lock{
 // Laptop
 @media(max-width: 1200px) {
     .header {
-        grid-template-columns: 0.6fr 580px 2.5fr;
+        grid-template-columns: 0.6fr 560px 2.5fr;
     }
     .header-btns {
         grid-template-columns: minmax(120px, 300px) repeat(4, 1fr);
+    }
+    .header-menu{
+        line-height: 1.1em;
     }
 }
 
@@ -329,7 +331,6 @@ body.lock{
         overflow-x: hidden;
         transition: 0.5s;
         
-    
         visibility: hidden;
         opacity: 0;
         .header-menu-mobile-border {
