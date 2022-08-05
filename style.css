@@ -471,7 +471,7 @@ body.lock {
     overflow: hidden;
   }
   .video-block {
-    height: 600px;
+    min-height: 600px;
   }
   .video-content {
     top: 53%;
@@ -498,16 +498,41 @@ body.lock {
 }
 @media (max-width: 576px) {
   .video-block {
-    max-height: 200px;
+    min-height: 555px;
+    background-color: transparent;
   }
-  .video-content {
-    display: none;
+  .video-block-mobile {
+    margin-top: 48px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 200px 1fr;
   }
   .video-bg {
     position: static;
-    margin-top: 48px;
     background-image: url(images/video-bg-mobile.jpg);
     background-position: center;
     background-size: cover;
+  }
+  .video-content {
+    position: static;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transform: none;
+  }
+  .video-content .video-content-header {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+  }
+  .video-content .video-content-header > p:nth-child(1) {
+    font-size: 26px;
+  }
+  .video-content .video-content-header button {
+    margin-top: 15px;
+  }
+  .video-content .video-content-text {
+    background-color: rgb(228, 232, 232);
   }
 }/*# sourceMappingURL=style.css.map */
