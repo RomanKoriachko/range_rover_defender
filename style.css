@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, strong, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -54,6 +55,7 @@ table {
 
 body {
   font-family: "Arial", sans-serif;
+  background-color: #4b4f53;
 }
 
 body.lock {
@@ -63,15 +65,18 @@ body.lock {
 .global-container {
   max-width: 2000px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .header {
+  width: 100%;
   position: fixed;
   z-index: 100;
   top: 0px;
   height: 72px;
+  max-width: 2000px;
   display: grid;
-  grid-template-columns: 0.6fr 3.5fr 2.5fr;
+  grid-template-columns: 0.6fr minmax(515px, 1345px) 2.5fr;
   grid-template-rows: 100%;
   align-items: center;
   justify-items: center;
@@ -139,7 +144,7 @@ body.lock {
   height: 100%;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 5fr repeat(4, 1fr);
+  grid-template-columns: 300px repeat(4, 1fr);
 }
 .header-btns li {
   color: rgb(12, 18, 28);
@@ -207,6 +212,76 @@ body.lock {
   background-size: 20px;
 }
 
+.video-block {
+  position: relative;
+  background-color: black;
+  max-height: 800px;
+}
+
+.video {
+  width: 100%;
+  min-height: 750px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.video-content {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 50px;
+  z-index: 2;
+  width: 415px;
+  font-family: "Kanit", sans-serif;
+  text-align: start;
+  letter-spacing: 0.085em;
+}
+.video-content .video-content-header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+}
+.video-content .video-content-header p:nth-child(1) {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+.video-content .video-content-header p:nth-child(2), .video-content .video-content-header p:nth-child(3) {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.video-content .video-content-header button {
+  width: 120px;
+  height: 47px;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  transition: 0.3s all;
+  margin-top: 25px;
+}
+.video-content .video-content-header button:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.video-content .video-content-text {
+  background-color: rgba(228, 232, 232, 0.9);
+  padding: 30px;
+  font-size: 10px;
+  padding-bottom: 40px;
+}
+.video-content .video-content-text p:nth-child(1) {
+  font-weight: bold;
+}
+.video-content .video-content-text p:nth-child(3) {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.video-bg {
+  display: none;
+}
+
 .show {
   display: block;
 }
@@ -215,6 +290,14 @@ body.lock {
   display: none;
 }
 
+@media (max-width: 1200px) {
+  .header {
+    grid-template-columns: 0.6fr 580px 2.5fr;
+  }
+  .header-btns {
+    grid-template-columns: minmax(120px, 300px) repeat(4, 1fr);
+  }
+}
 @media (max-width: 992px) {
   .header {
     height: 48px;
@@ -384,5 +467,45 @@ body.lock {
   }
   .main {
     overflow: hidden;
+  }
+  .video-block {
+    height: 600px;
+  }
+  .video-content {
+    top: 53%;
+  }
+  .video {
+    display: none;
+  }
+  .video-bg {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-image: url(images/video-bg.jpg);
+    background-position: 85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .video-content {
+    width: 300px;
+    left: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .video-block {
+    max-height: 200px;
+  }
+  .video-content {
+    display: none;
+  }
+  .video-bg {
+    position: static;
+    margin-top: 48px;
+    background-image: url(images/video-bg-mobile.jpg);
+    background-position: center;
+    background-size: cover;
   }
 }/*# sourceMappingURL=style.css.map */
