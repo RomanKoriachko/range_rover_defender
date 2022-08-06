@@ -8,5 +8,26 @@ menuIcon.addEventListener("click", function () {
   mobileDesktop.classList.toggle("active");
   mobileMenu.classList.toggle("active");
   document.body.classList.toggle("lock");
-  //   headerButtons.classList.toggle("hide");
 });
+
+let header = document.querySelector(".header");
+
+window.onscroll = function () {
+  if (window.scrollY > 800 && document.body.scrollWidth > 992) {
+    header.classList.add("hide-header");
+  } else {
+    header.classList.remove("hide-header");
+  }
+};
+
+// function hideHeader() {
+//   console.log(window.pageYOffset);
+//   window.addEventListener("scroll", function () {
+//     if (window.pageYOffset > 800) {
+//       header.classList.add("hide-header");
+//     } else {
+//       header.classList.remove("hide-header");
+//     }
+//   });
+// }
+// hideHeader();

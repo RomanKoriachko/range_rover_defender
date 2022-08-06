@@ -33,6 +33,7 @@ body.lock{
     padding-left: 10px;
     padding-right: 10px;
     background-color: white;
+    transition: .1s all ease-in-out;
 }
 .header-bg {
     background-color: white;
@@ -156,11 +157,10 @@ body.lock{
 
 .video-block{
     position: relative;
-    background-color: black;
+    margin-bottom: -4px;
 }
 .video {
     width: 100%;
-    min-height: 750px;
     object-fit: contain;
 }
 .video-content {
@@ -218,13 +218,52 @@ body.lock{
 .video-bg{
     display: none;
 }
+.nav { 
+    position: sticky;
+    top: 0px;
+    background-color: #4b4f53;
+}
+.navbar { 
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 100%;
+    height: 40px;
+    margin: 0 90px;
+    button{
+        border: none;
+        background-color: #4b4f53;
+        border-left: 1px solid #5d6064;
+        color: white;
+        font-size: 10px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        cursor: pointer;
+        a{
+            text-decoration: none;
+            color: white;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            transition: .2s all ease-in-out;
+        }
+        &:hover >a{
+            border-bottom: 1px solid white;
+        }
+        
+    }
+    button:last-child{
+        border-right: 1px solid #5d6064;
+    }
+}
+
+
 .show{
     display: block;
 }
 .hide{
     display: none;
 }
-
+.hide-header{
+    top: -100px;
+}
 // Laptop
 @media(max-width: 1200px) {
     .header {
@@ -415,6 +454,7 @@ body.lock{
     }
     .video-block{
         min-height: 600px;
+        margin-bottom: 0px;
     }
     .video-content{
         top: 53%;
@@ -437,6 +477,9 @@ body.lock{
     .video-content{
         width: 300px;
         left: 20px;
+    }
+    .nav {
+        display: none;
     }
 
 }
