@@ -11,23 +11,19 @@ menuIcon.addEventListener("click", function () {
 });
 
 let header = document.querySelector(".header");
+let navigationBar = document.querySelector(".nav-section");
 
 window.onscroll = function () {
-  if (window.scrollY > 800 && document.body.scrollWidth > 992) {
+  if (
+    navigationBar.getBoundingClientRect().y === 0 &&
+    document.body.scrollWidth > 992
+  ) {
     header.classList.add("hide-header");
+    navigationBar.classList.add("scrolled");
+    navigationBar.classList.remove("not-scrolled");
   } else {
     header.classList.remove("hide-header");
+    navigationBar.classList.remove("scrolled");
+    navigationBar.classList.add("not-scrolled");
   }
 };
-
-// function hideHeader() {
-//   console.log(window.pageYOffset);
-//   window.addEventListener("scroll", function () {
-//     if (window.pageYOffset > 800) {
-//       header.classList.add("hide-header");
-//     } else {
-//       header.classList.remove("hide-header");
-//     }
-//   });
-// }
-// hideHeader();

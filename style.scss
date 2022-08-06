@@ -1,5 +1,12 @@
 @use "reset";
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&display=swap');
+@mixin fontKanit($size,$weight,$color,$space) {
+    font-family: 'Kanit', sans-serif;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    letter-spacing: $space;
+}
 
 *{
     box-sizing: border-box;
@@ -11,12 +18,19 @@ body {
 body.lock{
     overflow: hidden;
 }
+[class*="-section"] {
+    background-color: white;
+}
 
 // Desktop lg
 .global-container {
     max-width: 2000px;
     margin: 0 auto;
     text-align: center;
+}
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
 }
 .header {
     width: 100%;
@@ -155,13 +169,13 @@ body.lock{
     }
 }
 
-.video-block{
+.video-block-section{
     position: relative;
-    margin-bottom: -4px;
 }
 .video {
     width: 100%;
     object-fit: contain;
+    margin-bottom: -3px;
 }
 .video-content {
     position: absolute;
@@ -218,7 +232,7 @@ body.lock{
 .video-bg{
     display: none;
 }
-.nav { 
+.nav-section { 
     position: sticky;
     top: 0px;
     background-color: #4b4f53;
@@ -227,13 +241,12 @@ body.lock{
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 100%;
     height: 40px;
-    margin: 0 90px;
     button{
         border: none;
         background-color: #4b4f53;
         border-left: 1px solid #5d6064;
         color: white;
-        font-size: 10px;
+        font-size: 8px;
         letter-spacing: 2px;
         font-weight: bold;
         cursor: pointer;
@@ -253,14 +266,105 @@ body.lock{
         border-right: 1px solid #5d6064;
     }
 }
+.nav-section.not-scrolled{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.nav-section.scrolled{
+    background-color: #e6e9e9e0;
+    button{
+        background-color: transparent;
+        border: none;
+        a{
+            color: black;
+        }
+        &:hover >a{
+            border-bottom: 1px solid black;;
+        }
+        
+    }
+    button:last-child{
+        border-right: none;
+    }
+}
+.main-menu-content{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100%;
+    .main-menu-item {
+        border-right: 1px solid #d8d8d8;
+        padding: 48px 20px 40px;
+        line-height: 1.2;
+        cursor: pointer;
+        .main-menu-item-img  {
+            width: 45px;
+            height: 45px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 45px;
+        }
+        .main-menu-item-name {
+            display: flex;
+            align-items: baseline;
+            margin: 22px 0 13px 0;
+            text-align: left;
+            @include fontKanit(15px,600,black,1.5px);
+            p{
+                text-decoration: underline white;
+            }
+            .main-menu-item-name-img{
+                height: 12px;
+                width: 16px;
+                background-image: url(images/main-arrow-black.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 20px;
+            }
+        }
+        .main-menu-item-desc {
+            text-align: left;
+            font-size: 16px;
+        }
+        &:nth-child(1):hover .equipment{
+            background-image: url(images/main-car-green.png);
+        }
+        &:nth-child(2):hover .literature{
+            background-image: url(images/main-book-green.png);
+        }
+        &:nth-child(3):hover .mail{
+            background-image: url(images/main-mail-green.png);
+        }
+        &:nth-child(4):hover .dilers{
+            background-image: url(images/main-marker-green.png);
+        }
+        &:hover .main-menu-item-name-img{
+            background-image: url(images/main-arrow-green.png);
+        }
+        &:hover .main-menu-item-name >p{
+            color: #255930;
+            text-decoration: underline #255930;
+        }
+    }
+    .main-menu-item:last-child{
+        border-right: none;
+    }
+}
 
 
-.show{
-    display: block;
+.equipment {
+    background-image: url(images/main-car-black.png);
 }
-.hide{
-    display: none;
+.literature {
+    background-image: url(images/main-book-black.png);
 }
+.mail {
+    background-image: url(images/main-mail-black.png);
+}
+.dilers {
+    background-image: url(images/main-marker-black.png);
+}
+
+
+
 .hide-header{
     top: -100px;
 }
@@ -452,15 +556,15 @@ body.lock{
     .main{
         overflow:hidden
     }
-    .video-block{
+    .video-block-section{
         min-height: 600px;
-        margin-bottom: 0px;
     }
     .video-content{
         top: 53%;
     }
     .video{
         display: none;
+        margin-bottom: 0px;
     }
     .video-bg{
         display: block;
@@ -478,18 +582,26 @@ body.lock{
         width: 300px;
         left: 20px;
     }
-    .nav {
+    .nav-section {
         display: none;
     }
-
+    .main-menu-content{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        .main-menu-item:nth-child(1) {
+            border-bottom: 1px solid #d8d8d8;
+        }
+        .main-menu-item:nth-child(2) {
+            border-bottom: 1px solid #d8d8d8;
+        }
+    }
 }
 
 // Mobile
 @media(max-width: 576px) {
-    .video-block{
-        min-height: 555px;
+    .video-block-section{
+        min-height: auto;
         background-color: transparent;
-
     }
     .video-block-mobile {
         margin-top: 48px;
@@ -523,6 +635,33 @@ body.lock{
         }
         .video-content-text{
             background-color: rgba(228,232,232,1);
+        }
+    }
+    .main-menu-content{
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(4, 1fr);
+        .main-menu-item{
+            display: flex;
+            padding: 15px 15px;
+            .main-menu-item-img{
+                margin-right: 10px;
+            }
+            .main-menu-item-name{
+                margin: 0;
+                align-items: center;
+                .main-menu-item-name-img{
+                    margin-right: 10px;
+                }
+            }
+        }
+        .main-menu-item:nth-child(3) {
+            border-bottom: 1px solid #d8d8d8;
+        }
+        .main-menu-item:nth-child(4) {
+            border-bottom: 1px solid #d8d8d8;
+        }
+        .main-menu-item-desc{
+            display: none;
         }
     }
 }
