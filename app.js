@@ -33,36 +33,68 @@ window.onscroll = function () {
 };
 
 // Tabs
-let tabsItem = document.querySelectorAll(".tab-title-item");
-let tabsContent = document.querySelectorAll(".tab-content");
-let tabsWrap = document.querySelector(".tab-title-items");
+let tabsItemModel = document.querySelectorAll(".model-tab-title-item");
+let tabsContentModel = document.querySelectorAll(".model-tab-content");
+let tabsWrapModel = document.querySelector(".model-tab-title-items");
 
-function hideTabsContent() {
-  tabsContent.forEach((tab) => {
+let tabsItemEquipment = document.querySelectorAll(".equipment-tab-title-item");
+let tabsContentEquipment = document.querySelectorAll(".equipment-tab-content");
+let tabsWrapEquipment = document.querySelector(".equipment-tab-title-items");
+
+function hideTabsContentModel() {
+  tabsContentModel.forEach((tab) => {
     tab.classList.add("hide");
     tab.classList.remove("show");
   });
-  tabsItem.forEach((item) => {
+  tabsItemModel.forEach((item) => {
+    item.classList.remove("active-item");
+  });
+}
+function hideTabsContentEquipment() {
+  tabsContentEquipment.forEach((tab) => {
+    tab.classList.add("hide");
+    tab.classList.remove("show");
+  });
+  tabsItemEquipment.forEach((item) => {
     item.classList.remove("active-item");
   });
 }
 
-function showTabsContent(i = 0) {
-  tabsContent[i].classList.add("show");
-  tabsContent[i].classList.remove("hide");
-  tabsItem[i].classList.add("active-item");
+function showTabsContentModel(i = 0) {
+  tabsContentModel[i].classList.add("show");
+  tabsContentModel[i].classList.remove("hide");
+  tabsItemModel[i].classList.add("active-item");
+}
+function showTabsContentEquipment(i = 0) {
+  tabsContentEquipment[i].classList.add("show");
+  tabsContentEquipment[i].classList.remove("hide");
+  tabsItemEquipment[i].classList.add("active-item");
 }
 
-hideTabsContent();
-showTabsContent();
+hideTabsContentModel();
+showTabsContentModel();
+hideTabsContentEquipment();
+showTabsContentEquipment();
 
-tabsWrap.addEventListener("click", function (e) {
+tabsWrapModel.addEventListener("click", function (e) {
   let target = e.target;
-  if (target && target.classList.contains("tab-title-item")) {
-    tabsItem.forEach((item, i) => {
+  if (target && target.classList.contains("model-tab-title-item")) {
+    tabsItemModel.forEach((item, i) => {
       if (target === item) {
-        hideTabsContent();
-        showTabsContent(i);
+        hideTabsContentModel();
+        showTabsContentModel(i);
+      }
+    });
+  }
+});
+
+tabsWrapEquipment.addEventListener("click", function (e) {
+  let target = e.target;
+  if (target && target.classList.contains("equipment-tab-title-item")) {
+    tabsItemEquipment.forEach((item, i) => {
+      if (target === item) {
+        hideTabsContentEquipment();
+        showTabsContentEquipment(i);
       }
     });
   }
