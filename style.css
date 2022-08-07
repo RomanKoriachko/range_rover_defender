@@ -457,7 +457,17 @@ body.lock {
   align-items: center;
   font-size: 12px;
   letter-spacing: 3px;
+  width: 180px;
   cursor: pointer;
+  margin: 0 auto;
+}
+.title-section .title-video > p {
+  padding: 3px;
+  border-bottom: 1px solid white;
+  transition: 0.3s all;
+}
+.title-section .title-video:hover > p {
+  border-bottom: 1px solid black;
 }
 .title-section .title-video .title-video-arrow {
   height: 20px;
@@ -664,6 +674,112 @@ body.lock {
 }
 .interier-section .interier-main .item-4 button:hover {
   background-image: url(images/configurator-black.png);
+}
+
+.specs-section .specs-main {
+  display: grid;
+  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 3fr;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.specs-section .specs-main .specs-items {
+  text-align: left;
+}
+.specs-section .specs-main .specs-items .specs-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 3px;
+  width: 180px;
+  cursor: pointer;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+.specs-section .specs-main .specs-items .specs-btn > p {
+  padding: 3px;
+  border-bottom: 1px solid white;
+  transition: 0.3s all;
+}
+.specs-section .specs-main .specs-items .specs-btn:hover > p {
+  border-bottom: 1px solid black;
+}
+.specs-section .specs-main .specs-items .specs-btn .specs-btn-video-arrow {
+  height: 20px;
+  width: 25px;
+  background-image: url(images/main-arrow-black.png);
+  background-size: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 15px;
+}
+.specs-section .specs-main .specs-items .specs-img {
+  position: relative;
+  transition: 0.3s all;
+}
+.specs-section .specs-main .specs-items .specs-img img {
+  width: 100%;
+  margin-bottom: -3px;
+}
+.specs-section .specs-main .specs-items .specs-img:hover .hovered {
+  opacity: 1;
+  visibility: visible;
+}
+.specs-section .specs-main .specs-items .specs-img .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url(images/play-img.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 200%;
+}
+.specs-section .specs-main .specs-items .hovered {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s all;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.specs-section .specs-main .specs-items .specs-item-header {
+  font-family: "Kanit", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 3px;
+  margin: 40px 0 30px 0;
+}
+.specs-section .specs-main .specs-items .specs-item-content {
+  font-size: 14px;
+  color: #4a4f54;
+  line-height: 1.4;
+  letter-spacing: 1.1px;
+}
+.specs-section .specs-main .item-1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
+  align-self: center;
+  font-family: "Kanit", sans-serif;
+  font-size: 34px;
+  font-weight: bold;
+  color: black;
+  letter-spacing: 2px;
 }
 
 .hide-header {
@@ -965,6 +1081,15 @@ body.lock {
     grid-row-start: 4;
     grid-row-end: 5;
   }
+  .specs-section .specs-main {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr repeat(3, 4fr);
+  }
+  .specs-section .specs-main .item-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 }
 @media (max-width: 576px) {
   .video-block-section {
@@ -1048,5 +1173,9 @@ body.lock {
   }
   .interier-section .interier-main .item-4 {
     align-self: flex-start;
+  }
+  .specs-section .specs-main {
+    gap: 0;
+    padding-top: 0;
   }
 }/*# sourceMappingURL=style.css.map */

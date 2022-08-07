@@ -68,7 +68,7 @@ tabsWrap.addEventListener("click", function (e) {
   }
 });
 
-// Exterier slider
+// Slider
 $(document).ready(function () {
   $(".slider").slick({
     dots: true,

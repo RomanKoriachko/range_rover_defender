@@ -8,7 +8,7 @@
     color: $color;
     letter-spacing: $space;
 }
-@mixin btnStyle($width, $height){
+@mixin btnDefault($width, $height){
     width: $width;
     height: $height;
     background-color: black;
@@ -24,6 +24,31 @@
         border: 1px solid black;
         color: black;
     }
+}
+@mixin btnVideo() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 3px;
+    width: 180px;
+    cursor: pointer;
+    >p{
+        padding: 3px;
+        border-bottom: 1px solid white;
+        transition: .3s all;
+    }
+    &:hover >p{
+        border-bottom: 1px solid black;
+    }
+}
+@mixin btnVideoArrow {
+    height: 20px;
+    width: 25px;
+    background-image: url(images/main-arrow-black.png);
+    background-size: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 *{
@@ -219,7 +244,7 @@ body.lock{
             margin-bottom: 5px;
         }
         button{
-            @include btnStyle(120px, 47px);
+            @include btnDefault(120px, 47px);
             margin-top: 25px;
         }
     }
@@ -380,19 +405,10 @@ body.lock{
         margin: 30px 0;
     }
     .title-video {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        letter-spacing: 3px;
-        cursor: pointer;
+        @include btnVideo();
+        margin: 0 auto;
         .title-video-arrow {
-            height: 20px;
-            width: 25px;
-            background-image: url(images/main-arrow-black.png);
-            background-size: 15px;
-            background-position: center;
-            background-repeat: no-repeat;
+            @include btnVideoArrow();
         }
     }
 }
@@ -567,12 +583,94 @@ body.lock{
                 background-repeat: no-repeat;
                 background-position: 12%;
                 padding-left: 35px;
-                @include btnStyle(190px, 47px);
+                @include btnDefault(190px, 47px);
                 &:hover{
                     background-image: url(images/configurator-black.png);
                 }
             }
         }  
+    }
+}
+
+.specs-section{
+    .specs-main {
+        display: grid;
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 3fr;
+        gap: 40px;
+        padding-top: 40px;
+        padding-bottom: 30px;
+        .specs-items { 
+            text-align: left;
+            .specs-btn {
+                @include btnVideo();
+                margin-top: 30px;
+                justify-content: flex-start;
+                .specs-btn-video-arrow {
+                    @include btnVideoArrow();
+                    background-position: left;
+                    width: 15px;
+                }
+            }
+            .specs-img {
+                position: relative;
+                transition: .3s all;
+                img{
+                    width: 100%;
+                    margin-bottom: -3px;
+                }
+                &:hover .hovered{
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .play-btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 2;
+                    width: 64px;
+                    height: 64px;
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    background-image: url(images/play-img.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 200%;
+                }
+            }
+            .hovered {
+                position: absolute;
+                // display: none;
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s all;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.3);
+            }
+            .specs-item-header {
+                @include fontKanit(14px, bold, black, 3px);
+                margin: 40px 0 30px 0;
+            }
+            .specs-item-content {
+                font-size: 14px;
+                color: #4a4f54;
+                line-height: 1.4;
+                letter-spacing: 1.1px;
+            }
+        }
+        .item-1{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            text-align: center;
+            align-self: center;
+            @include fontKanit(34px, bold, black, 2px)
+        }
     }
 }
 
@@ -891,6 +989,17 @@ body.lock{
             }
         }
     }
+    .specs-section{
+        .specs-main {
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 1fr repeat(3, 4fr);
+            .item-1{
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+        }
+    }
 }
 
 // Mobile
@@ -979,6 +1088,12 @@ body.lock{
             .item-4{
                 align-self: flex-start;
             }
+        }
+    }
+    .specs-section{
+        .specs-main {
+            gap: 0;
+            padding-top: 0;
         }
     }
 }
