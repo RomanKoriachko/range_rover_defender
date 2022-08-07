@@ -1,11 +1,29 @@
 @use "reset";
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;500&display=swap');
+
 @mixin fontKanit($size,$weight,$color,$space) {
     font-family: 'Kanit', sans-serif;
     font-size: $size;
     font-weight: $weight;
     color: $color;
     letter-spacing: $space;
+}
+@mixin btnStyle($width, $height){
+    width: $width;
+    height: $height;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: .3em;
+    transition: .3s all;
+    cursor: pointer;
+    &:hover{
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+    }
 }
 
 *{
@@ -29,8 +47,10 @@ body.lock{
     text-align: center;
 }
 .container{
-    max-width: 1280px;
+    max-width: 1300px;
     margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .header {
     width: 100%;
@@ -199,20 +219,8 @@ body.lock{
             margin-bottom: 5px;
         }
         button{
-            width: 120px;
-            height: 47px;
-            background-color: black;
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: .3em;
-            transition: .3s all;
+            @include btnStyle(120px, 47px);
             margin-top: 25px;
-            &:hover{
-                background-color: white;
-                border: 1px solid black;
-                color: black;
-            }
         }
     }
     .video-content-text {
@@ -503,6 +511,70 @@ body.lock{
     opacity: 1;
 }
 
+.interier-section{
+    background-color: #eaecec;
+    .interier-main {
+        display: grid;
+        align-items: start;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 3fr 1fr;
+        gap: 40px;
+        padding-top: 80px;
+        padding-bottom: 30px;
+        .interier-items { 
+            text-align: left;
+            .interier-img {
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    transition: .3s all;
+                    margin-bottom: -3px;
+                }
+            }
+            .interier-item-header {
+                @include fontKanit(14px, bold, black, 3px);
+                margin: 40px 0 30px 0;
+            }
+            .interier-item-content {
+                font-size: 14px;
+                color: #4a4f54;
+                line-height: 1.4;
+                letter-spacing: 1.1px;
+            }
+        }
+        .item-1{
+            &:hover .interier-img-1{
+                transform: scale(1.2);
+            }
+        }
+        .item-2{
+            &:hover .interier-img-2{
+                transform: scale(1.2);
+            }
+        }
+        .item-3{
+            &:hover .interier-img-3{
+                transform: scale(1.2);
+            }
+        }
+        .item-4{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            text-align: center;
+            align-self: center;
+            button{
+                background-image: url(images/configurator-white.png);
+                background-repeat: no-repeat;
+                background-position: 12%;
+                padding-left: 35px;
+                @include btnStyle(190px, 47px);
+                &:hover{
+                    background-image: url(images/configurator-black.png);
+                }
+            }
+        }  
+    }
+}
 
 
 
@@ -786,6 +858,39 @@ body.lock{
     .slick-prev, .slick-next{
         display: none !important;
     }
+    .interier-section{
+        background-color: #eaecec;
+        .interier-main {
+            grid-template-columns: 100%;
+            grid-template-rows: repeat(3, 5fr) 1fr;
+            gap: 40px 0;
+            padding-top: 80px;
+            padding-bottom: 30px;
+            .interier-items{
+                .interier-item-header{
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                }
+            }
+            .item-1{
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+            .item-2{
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+            .item-3{
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            .item-4{
+                // align-self: flex-start;
+                grid-row-start: 4;
+                grid-row-end: 5;
+            }
+        }
+    }
 }
 
 // Mobile
@@ -836,6 +941,7 @@ body.lock{
             padding: 15px 15px;
             .main-menu-item-img{
                 margin-right: 10px;
+                width: 60px;
             }
             .main-menu-item-name{
                 margin: 0;
@@ -866,5 +972,13 @@ body.lock{
     .slick-dots {
         bottom: 30px;
         left: 50px;
+    }
+    .interier-section{
+        .interier-main {
+            padding-bottom: 20px;
+            .item-4{
+                align-self: flex-start;
+            }
+        }
     }
 }
