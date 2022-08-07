@@ -70,7 +70,7 @@ tabsWrap.addEventListener("click", function (e) {
 
 // Exterier slider
 $(document).ready(function () {
-  $(".exterier-slider").slick({
+  $(".slider").slick({
     dots: true,
   });
 });

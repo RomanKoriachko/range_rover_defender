@@ -440,7 +440,7 @@ body.lock{
     }
 }
 
-.exterier-slider {
+.slider {
     img{
         height: 600px;
         width: 100%;
@@ -449,6 +449,9 @@ body.lock{
     }
 }
 
+.slick-dotted.slick-slider {
+    margin-bottom: 0;
+}
 .slick-prev:before, .slick-next:before{
     content: "";
 }
@@ -485,7 +488,7 @@ body.lock{
     text-align: left;
     bottom: 50px;
     left: 100px;
-    width: 90px;
+    width: 120px;
 }
 .slick-dots li button:before {
     content: "";
@@ -534,7 +537,7 @@ body.lock{
             }
         }
     }
-    .exterier-slider {
+    .slider {
         img{
             height: 500px;
             width: 100%;
@@ -855,15 +858,13 @@ body.lock{
     .title-section {
         padding: 30px 15px;
     }
-    .exterier-slider {
+    .slider {
         img{
             height: 250px;
         }
     }
     .slick-dots {
-        text-align: left;
         bottom: 30px;
         left: 50px;
-        width: 90px;
     }
 }
