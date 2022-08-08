@@ -829,6 +829,18 @@ body.lock{
             }
         }
     }
+    .accessoty-btn {
+        @include btnDefault(500px, 47px);
+        background-image: url(images/arrow-right-v2-white.png);
+        background-repeat: no-repeat;
+        background-position: 4%;
+        padding-left: 35px;
+        margin-top: 70px;
+        margin-bottom: 70px;
+        &:hover{
+            background-image: url(images/arrow-right-v2-black.png);
+        }
+    }
 }
 
 
@@ -1319,6 +1331,9 @@ body.lock{
         .accessory-wrapper {
             grid-template-columns: 100%;
             grid-template-rows: repeat(4, 1fr);
+        }
+        .accessoty-btn{
+            @include btnDefault(290px, 47px)
         }
     }
 }
