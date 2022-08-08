@@ -19,7 +19,7 @@ let navigationBar = document.querySelector(".nav-section");
 
 window.onscroll = function () {
   if (
-    navigationBar.getBoundingClientRect().y === 0 &&
+    navigationBar.getBoundingClientRect().y <= 0 &&
     document.body.scrollWidth > 992
   ) {
     header.classList.add("hide-header");

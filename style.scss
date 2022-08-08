@@ -943,7 +943,95 @@ body.lock{
     }
 }
 
-
+.footer-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 0 10px;
+    li{
+        color: white;
+        font-size: 9px;
+        margin-bottom: 8px;
+        a{
+            color: #e1e8e8;
+            text-decoration: none;
+            letter-spacing: 3px;
+            line-height: 2;
+        }
+    }
+    .footer-title {
+        font-weight: bold;
+        margin-top: 28px;
+        margin-bottom: 18px;
+    }
+    .footer-wrap {
+        display: flex;
+        align-items: center;
+        width: 150px;
+        cursor: pointer;
+        button{
+            width: 50px;
+            height: 50px;
+            background-color: #222;
+            border: none;
+            cursor: pointer;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: .3s all;
+        }
+        .facebook-btn {
+            background-image: url(images/facebook.png);
+        }
+        .linkedin-btn {
+            background-image: url(images/linkedin.png);
+        }
+        .youtube-btn {
+            background-image: url(images/youtube.png);
+        }
+        .instargam-btn {
+            background-image: url(images/instagram.png);
+        }
+        p{
+            margin-left: 15px;
+            letter-spacing: 3px;
+            line-height: 2;
+        }
+    }
+    .facebook-item:hover {
+        .facebook-btn{
+            background-color: #3a578d;
+        }
+        p{
+            text-decoration: underline;
+        }
+    }
+    .linkedin-item:hover {
+        .linkedin-btn{
+            background-color: #3579b1;
+        }
+        p{
+            text-decoration: underline;
+        }
+    }
+    .youtube-item:hover {
+        .youtube-btn{
+            background-color: #d44034;
+        }
+        p{
+            text-decoration: underline;
+        }
+    }
+    .instargam-item:hover {
+        .instargam-btn{
+            background-color: #4b6d92;
+        }
+        p{
+            text-decoration: underline;
+        }
+    }
+}
 
 .hide-header{
     top: -100px;
@@ -1315,6 +1403,36 @@ body.lock{
         .discover-wrapper {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
+        }
+    }
+    .footer-wrapper{
+        grid-template-columns: 100%;
+        grid-template-rows: 100%;
+        .footer-item {
+            display: none;
+            ul{
+                display: grid;
+                grid-template-columns: repeat(4, 80px);
+                grid-template-rows: 1fr 1fr;
+                justify-items: center;
+                justify-content: center;
+                .footer-title{
+                    grid-column-start: 1;
+                    grid-column-end: 5;
+                    font-size: 12px;
+                }
+                .footer-wrap{
+                    grid-row-start: 2;
+                    grid-row-end: 3;
+                    width: 50px;
+                }
+                p{
+                    display: none;
+                }
+            }
+        }
+        .footer-item:last-child{
+            display: block;
         }
     }
 }
