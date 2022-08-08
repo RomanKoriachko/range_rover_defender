@@ -841,6 +841,73 @@ body.lock{
             background-image: url(images/arrow-right-v2-black.png);
         }
     }
+    .choise {
+        background-image: url(images/choise-bg.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 650px;
+        position: relative;
+        .choise-block{
+            background-color: rgba(255,255,255,0.9);
+            padding: 30px;
+            width: 415px;
+            position: absolute;
+            text-align: left;
+            top: 50%;
+            left: 70px;
+            transform: translate(0, -50%);
+            .choise-header{
+                font-size: 38px;
+                margin-bottom: 10px;
+            }
+            .choise-content {
+                font-size: 13px;
+                margin-bottom: 5px;
+                line-height: 1.2;
+                letter-spacing: 1.5px
+            }
+            button{
+                @include btnDefault(135px, 47px);
+                margin-top: 10px;
+                padding-left: 35px;
+                background-image: url(images/arrow-right-v2-white.png);
+                background-repeat: no-repeat;
+                background-position: 12%;
+                &:hover{
+                    background-image: url(images/arrow-right-v2-black.png);
+                }
+            }
+        }
+    }
+    .choise-block-tablet {
+        display: none;
+        background-color: rgba(255,255,255,0.9);
+            padding: 30px;
+            width: 100%;
+            text-align: left;
+            .choise-header{
+                font-size: 38px;
+                margin-bottom: 10px;
+            }
+            .choise-content {
+                font-size: 13px;
+                margin-bottom: 5px;
+                line-height: 1.2;
+                letter-spacing: 1.5px
+            }
+            button{
+                @include btnDefault(135px, 47px);
+                margin-top: 10px;
+                padding-left: 35px;
+                background-image: url(images/arrow-right-v2-white.png);
+                background-repeat: no-repeat;
+                background-position: 12%;
+                &:hover{
+                    background-image: url(images/arrow-right-v2-black.png);
+                }
+            }
+    }
 }
 
 
@@ -881,6 +948,11 @@ body.lock{
             width: 100%;
             object-fit: cover;
             object-position: center;
+        }
+    }
+    .accessory-section{
+        .choise {
+            height: 500px;
         }
     }
 }
@@ -1201,6 +1273,9 @@ body.lock{
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
         }
+        .choise {
+            height: 370px;
+        }
     }
 }
 
@@ -1334,6 +1409,18 @@ body.lock{
         }
         .accessoty-btn{
             @include btnDefault(290px, 47px)
+        }
+        .choise {
+            .choise-block{
+                display: none;
+            }
+        }
+        .choise-block-tablet {
+            display: block;
+            text-align: center;
+            .choise-header{
+                font-size: 24px;
+            }
         }
     }
 }

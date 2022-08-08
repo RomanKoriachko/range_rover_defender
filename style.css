@@ -990,6 +990,101 @@ body.lock {
 .accessory-section .accessoty-btn:hover {
   background-image: url(images/arrow-right-v2-black.png);
 }
+.accessory-section .choise {
+  background-image: url(images/choise-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  position: relative;
+}
+.accessory-section .choise .choise-block {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  width: 415px;
+  position: absolute;
+  text-align: left;
+  top: 50%;
+  left: 70px;
+  transform: translate(0, -50%);
+}
+.accessory-section .choise .choise-block .choise-header {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.accessory-section .choise .choise-block .choise-content {
+  font-size: 13px;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+}
+.accessory-section .choise .choise-block button {
+  width: 135px;
+  height: 47px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  transition: 0.3s all;
+  cursor: pointer;
+  margin-top: 10px;
+  padding-left: 35px;
+  background-image: url(images/arrow-right-v2-white.png);
+  background-repeat: no-repeat;
+  background-position: 12%;
+}
+.accessory-section .choise .choise-block button:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.accessory-section .choise .choise-block button:hover {
+  background-image: url(images/arrow-right-v2-black.png);
+}
+.accessory-section .choise-block-tablet {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  width: 100%;
+  text-align: left;
+}
+.accessory-section .choise-block-tablet .choise-header {
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.accessory-section .choise-block-tablet .choise-content {
+  font-size: 13px;
+  margin-bottom: 5px;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+}
+.accessory-section .choise-block-tablet button {
+  width: 135px;
+  height: 47px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  transition: 0.3s all;
+  cursor: pointer;
+  margin-top: 10px;
+  padding-left: 35px;
+  background-image: url(images/arrow-right-v2-white.png);
+  background-repeat: no-repeat;
+  background-position: 12%;
+}
+.accessory-section .choise-block-tablet button:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.accessory-section .choise-block-tablet button:hover {
+  background-image: url(images/arrow-right-v2-black.png);
+}
 
 .hide-header {
   top: -100px;
@@ -1029,6 +1124,9 @@ body.lock {
        object-fit: cover;
     -o-object-position: center;
        object-position: center;
+  }
+  .accessory-section .choise {
+    height: 500px;
   }
 }
 @media (max-width: 992px) {
@@ -1332,6 +1430,9 @@ body.lock {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
+  .accessory-section .choise {
+    height: 370px;
+  }
 }
 @media (max-width: 576px) {
   .video-block-section {
@@ -1465,5 +1566,15 @@ body.lock {
     background-color: white;
     border: 1px solid black;
     color: black;
+  }
+  .accessory-section .choise .choise-block {
+    display: none;
+  }
+  .accessory-section .choise-block-tablet {
+    display: block;
+    text-align: center;
+  }
+  .accessory-section .choise-block-tablet .choise-header {
+    font-size: 24px;
   }
 }/*# sourceMappingURL=style.css.map */
