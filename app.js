@@ -15,21 +15,32 @@ menuIcon.addEventListener("click", function () {
 // Hide header
 
 let header = document.querySelector(".header");
-let navigationBar = document.querySelector(".nav-section");
+let navSection = document.querySelector(".nav-section");
+let navBar = document.querySelector(".navbar");
 
 window.onscroll = function () {
   if (
-    navigationBar.getBoundingClientRect().y <= 0 &&
+    navSection.getBoundingClientRect().y <= 0 &&
     document.body.scrollWidth > 992
   ) {
+    navBar.firstElementChild.classList.add("show");
+    navBar.firstElementChild.classList.remove("hide");
     header.classList.add("hide-header");
-    navigationBar.classList.add("scrolled");
-    navigationBar.classList.remove("not-scrolled");
+    navSection.classList.add("scrolled");
+    navSection.classList.remove("not-scrolled");
   } else {
+    navBar.firstElementChild.classList.remove("show");
+    navBar.firstElementChild.classList.add("hide");
     header.classList.remove("hide-header");
-    navigationBar.classList.remove("scrolled");
-    navigationBar.classList.add("not-scrolled");
+    navSection.classList.remove("scrolled");
+    navSection.classList.add("not-scrolled");
   }
+  activeBtn(titleExterier, titleInterier, exterierBtn);
+  activeBtn(titleInterier, titleSpecs, interierBtn);
+  activeBtn(titleSpecs, titleEquipment, specsBtn);
+  activeBtn(titleEquipment, titleAccessory, equipmentBtn);
+  activeBtn(titleAccessory, titleDiscover, accessoryBtn);
+  activeBtn(titleDiscover, titleNavigationEnd, discoverBtn);
 };
 
 // Tabs
@@ -106,3 +117,86 @@ $(document).ready(function () {
     dots: true,
   });
 });
+
+// navigation
+
+let titleExterier = document.querySelector(".title-exterier");
+let titleInterier = document.querySelector(".title-interier");
+let titleSpecs = document.querySelector(".specs-section");
+let titleEquipment = document.querySelector(".title-equipment");
+let titleAccessory = document.querySelector(".title-accessory");
+let titleDiscover = document.querySelector(".discover-section");
+let titleNavigationEnd = document.querySelector(".main-menu-section-2");
+
+let upBtn = document.querySelector(".up-btn");
+let exterierBtn = document.querySelector(".exterier-btn");
+let interierBtn = document.querySelector(".interier-btn");
+let specsBtn = document.querySelector(".specs-btn");
+let equipmentBtn = document.querySelector(".equipment-btn");
+let accessoryBtn = document.querySelector(".accessory-btn");
+let discoverBtn = document.querySelector(".discover-btn");
+
+console.log(titleExterier.getBoundingClientRect().top);
+console.log(window.pageYOffset);
+
+upBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+exterierBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleExterier.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+interierBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleInterier.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+specsBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleSpecs.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+equipmentBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleEquipment.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+accessoryBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleAccessory.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+discoverBtn.addEventListener("click", function () {
+  window.scrollTo({
+    top: titleDiscover.getBoundingClientRect().top + window.pageYOffset,
+    behavior: "smooth",
+  });
+});
+
+function activeBtn(title, nextTitle, button) {
+  if (
+    window.pageYOffset >=
+      title.getBoundingClientRect().top + window.pageYOffset - 1 &&
+    window.pageYOffset <
+      nextTitle.getBoundingClientRect().top + window.pageYOffset - 1
+  ) {
+    button.classList.add("active-btn");
+  } else {
+    button.classList.remove("active-btn");
+  }
+}

@@ -275,26 +275,30 @@ body.lock{
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 100%;
     height: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    .up-btn{
+        background-image: url(images/arrow-up.png);
+        background-position: 10%;
+        background-repeat: no-repeat;
+        background-size: 15%;
+        padding-left: 20px;
+    }
     button{
         border: none;
         background-color: #4b4f53;
         border-left: 1px solid #5d6064;
+        border-bottom: 1px solid #4b4f53;
+        text-decoration: none;
         color: white;
         font-size: 8px;
         letter-spacing: 2px;
         font-weight: bold;
         cursor: pointer;
-        a{
-            text-decoration: none;
-            color: white;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            transition: .2s all ease-in-out;
-        }
-        &:hover >a{
-            border-bottom: 1px solid white;
-        }
-        
+        transition: .3s all;
+        &:hover{
+            border-bottom: 3px solid white;
+        } 
     }
     button:last-child{
         border-right: 1px solid #5d6064;
@@ -309,16 +313,25 @@ body.lock{
     button{
         background-color: transparent;
         border: none;
-        a{
-            color: black;
-        }
-        &:hover >a{
+        color: black;
+        border-bottom: 1px solid rgba(230, 233, 233, 0.95);
+        transition: .3s all;
+        &:hover {
             border-bottom: 1px solid black;;
         }
-        
     }
     button:last-child{
         border-right: none;
+    }
+    button.active-btn{
+        border-bottom: 5px solid #2c5e36;
+    }
+}
+.scrolled {
+    .navbar {
+        grid-template-columns: 80px repeat(6, 1fr);
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 .main-menu-content{
